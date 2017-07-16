@@ -76,6 +76,9 @@ void lval_del(lval* v) {
     case LVAL_ERR: free(v->err); break;
     case LVAL_SYM: free(v->sym); break;
 
+    /* If Qexpr or Sexpr then delete all elements inside */
+    case LVAL_QEXPR:
+
     /* If Sexpr then delete all elements inside */
     case LVAL_SEXPR:
       for (int i = 0; i < v->count; i++) {
